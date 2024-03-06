@@ -1,47 +1,45 @@
+vim.g.mapleader        = ' '
+vim.g.maplocalleader   = ' '
 
-vim.g.mapleader   = ' '
-vim.g.maplocalleader = ' '
-
--- disable netrw at the very start of your init.lua
-vim.g.loaded_netrw = 1
-vim.g.loaded_netrwPlugin = 1
+-- change default settings of netrw
+vim.g.netrw_banner = 0
 
 vim.opt.relativenumber = true
-vim.opt.number = true
+vim.opt.number         = true
 
-vim.opt.mouse = 'a'
+vim.opt.mouse          = 'a'
 
-vim.opt.showmode = false
+vim.opt.showmode       = false
 
 -- Enable break indent
-vim.opt.breakindent = true
+vim.opt.breakindent    = true
 
 -- Save undo history
-vim.opt.undofile = true
+vim.opt.undofile       = true
 
 -- Case-insensitive searching UNLESS \C or capital in search
-vim.opt.ignorecase = true
-vim.opt.smartcase = true
+vim.opt.ignorecase     = true
+vim.opt.smartcase      = true
 
 -- Keep signcolumn on by default
-vim.opt.signcolumn = 'yes'
+vim.opt.signcolumn     = 'yes'
 
 -- Decrease update time
-vim.opt.updatetime = 250
-vim.opt.timeoutlen = 300
+vim.opt.updatetime     = 250
+vim.opt.timeoutlen     = 300
 
 -- Configure how new splits should be opened
-vim.opt.splitright = true
-vim.opt.splitbelow = true
+vim.opt.splitright     = true
+vim.opt.splitbelow     = true
 
 -- Preview substitutions live, as you type!
-vim.opt.inccommand = 'split'
+vim.opt.inccommand     = 'split'
 
 -- Show which line your cursor is on
-vim.opt.cursorline = true
+vim.opt.cursorline     = true
 
 -- Set highlight on search, but clear on pressing <Esc> in normal mode
-vim.opt.hlsearch = true
+vim.opt.hlsearch       = true
 vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 
 -- NOTE: You should make sure your terminal supports this
@@ -50,6 +48,11 @@ vim.o.termguicolors = true
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })
+
+-- file tree
+--[[ vim.api.nvim_set_keymap('n', '<C-N>', ":Lexplore<CR> :vertical resize 30<CR>", { noremap = true, silent = true }) ]]
+vim.api.nvim_set_keymap('n', '<C-n>', ":NvimTreeToggle<CR>", { noremap = true, silent = true })
+vim.api.nvim_set_keymap('n', '<C-o>', ":Oil --float<CR>", { noremap = true, silent = true })
 
 -- Diagnostic keymaps
 vim.keymap.set('n', '[d', vim.diagnostic.goto_prev, { desc = 'Go to previous [D]iagnostic message' })
@@ -72,14 +75,14 @@ vim.keymap.set({ 'n', 'v' }, '<leader>ff', ':Format<CR>', { desc = '[F]ormat doc
 -- remap for the explore (file tree)
 vim.keymap.set('n', '<leader>ft', ":NvimTreeToggle<CR>", { desc = 'Explore files', silent = true })
 
--- remap to keep the cursor in the middle 
+-- remap to keep the cursor in the middle
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')
 vim.keymap.set('n', '<C-b>', '<C-b>gg')
 vim.keymap.set('n', 'n', 'nzzzv')
 vim.keymap.set('n', 'N', 'Nzzzv')
 
--- remap to move the selection up and down 
+-- remap to move the selection up and down
 vim.keymap.set('v', 'J', ":m '>+1<CR>gv=gv")
 vim.keymap.set('v', 'K', ":m '<-2<CR>gv=gv")
 

@@ -24,12 +24,14 @@ return {
 		-- See `:help lualine.txt`
 		opts = {
 			options = {
-				icons_enabled = false,
 				component_separators = '|',
-				section_separators = '',
+				disabled_filetypes = {
+					statusline = { 'NvimTree' },
+					winbar = {},
+				},
 			},
 			sections = {
-				lualine_x = { 'fileformat', 'filetype' },
+				lualine_x = { 'filetype' },
 				lualine_y = { 'progress' },
 				lualine_z = { 'location' }
 			},
@@ -104,13 +106,21 @@ return {
 		end
 	},
 	{
+		'stevearc/oil.nvim',
+		cmd = "Oil",
+		opts = {},
+		-- Optional dependencies
+		dependencies = { "nvim-tree/nvim-web-devicons" },
+	},
+	{
 		"nvim-tree/nvim-tree.lua",
 		version = "*",
 		lazy = false,
 		dependencies = {
 			"nvim-tree/nvim-web-devicons",
 		},
-		config = true
+		config = function()
+			require("nvim-tree").setup {}
+		end,
 	}
-
 }

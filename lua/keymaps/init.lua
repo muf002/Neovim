@@ -1,8 +1,15 @@
 vim.g.mapleader        = ' '
 vim.g.maplocalleader   = ' '
 
+vim.g.have_nerd_font   = true
+
 -- change default settings of netrw
-vim.g.netrw_banner = 0
+vim.g.netrw_banner     = 0
+
+-- Sync clipboard between OS and Neovim.
+--  Remove this option if you want your OS clipboard to remain independent.
+--  See `:help 'clipboard'`
+vim.opt.clipboard      = 'unnamedplus'
 
 vim.opt.relativenumber = true
 vim.opt.number         = true

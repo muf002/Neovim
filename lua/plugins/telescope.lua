@@ -55,7 +55,11 @@ return { -- Fuzzy Finder (files, lsp, etc)
 					"node_modules",
 				},
 			},
-			-- pickers = {}
+			pickers = {
+				find_files = {
+					disable_devicons = true
+				}
+			},
 			extensions = {
 				["ui-select"] = {
 					require("telescope.themes").get_dropdown(),

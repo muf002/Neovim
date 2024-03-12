@@ -79,9 +79,6 @@ vim.keymap.set('n', '<C-k>', '<C-w><C-k>', { desc = 'Move focus to the upper win
 -- Format code using conform
 vim.keymap.set({ 'n', 'v' }, '<leader>ff', ':Format<CR>', { desc = '[F]ormat document', silent = true })
 
--- remap for the explore (file tree)
-vim.keymap.set('n', '<leader>ft', ":NvimTreeToggle<CR>", { desc = 'Explore files', silent = true })
-
 -- remap to keep the cursor in the middle
 vim.keymap.set('n', '<C-d>', '<C-d>zz')
 vim.keymap.set('n', '<C-u>', '<C-u>zz')

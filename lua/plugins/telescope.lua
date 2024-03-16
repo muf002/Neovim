@@ -57,7 +57,11 @@ return { -- Fuzzy Finder (files, lsp, etc)
 			},
 			pickers = {
 				find_files = {
-					disable_devicons = true
+					disable_devicons = true,
+					previewer = false
+				},
+				buffers = {
+					previewer = false
 				}
 			},
 			extensions = {

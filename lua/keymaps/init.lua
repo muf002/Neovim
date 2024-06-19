@@ -61,6 +61,27 @@ vim.keymap.set('n', '<Esc>', '<cmd>nohlsearch<CR>')
 -- NOTE: You should make sure your terminal supports this
 vim.o.termguicolors = true
 
+--[[ -- Enable terminal title
+vim.o.title = true
+
+-- Set the title string to show the current directory
+vim.o.titlestring = "%{expand('%:p:h:t')}" ]]
+
+-- Function to set the initial window title based on the launch directory
+local function set_initial_window_title()
+    local initial_cwd = vim.fn.getcwd()
+    local initial_dir_name = initial_cwd:match("([^/]+)$")
+
+    vim.opt.titlestring = initial_dir_name
+    vim.opt.title = true
+end
+
+-- Autocommand to set the initial title on Neovim startup
+vim.api.nvim_create_autocmd("VimEnter", {
+    pattern = "*",
+    callback = set_initial_window_title
+})
+
 -- Remap for dealing with word wrap
 vim.keymap.set('n', 'k', "v:count == 0 ? 'gk' : 'k'", { expr = true, silent = true })
 vim.keymap.set('n', 'j', "v:count == 0 ? 'gj' : 'j'", { expr = true, silent = true })

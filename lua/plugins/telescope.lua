@@ -53,11 +53,33 @@ return { -- Fuzzy Finder (files, lsp, etc)
 			defaults = {
 				file_ignore_patterns = {
 					"node_modules",
+					".git"
+				},
+				vimgrep_arguments = {
+					"rg",
+					"--color=never",
+					"--no-heading",
+					"--with-filename",
+					"--line-number",
+					"--column",
+					"--hidden",
+					"--smart-case",
+					"--no-ignore-vcs"
 				},
 			},
 			pickers = {
 				find_files = {
-					disable_devicons = true
+					disable_devicons = true,
+					hidden = true,
+					no_ignore = true,
+					file_ignore_patterns = { 'node_modules', '.git', '.DS_Store' },
+				},
+				live_grep = {
+					disable_devicons = true,
+					file_ignore_patterns = { 'node_modules', '.git' },
+					additional_args = function()
+						return { "--hidden" }
+					end
 				}
 			},
 			extensions = {

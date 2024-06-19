@@ -11,6 +11,15 @@ vim.g.netrw_banner     = 0
 --  See `:help 'clipboard'`
 vim.opt.clipboard      = 'unnamedplus'
 
+-- Set the number of spaces that a <Tab> counts for during editing operations
+vim.opt.tabstop = 2
+
+-- Set the number of spaces that a <Tab> displays as
+vim.opt.softtabstop = 2
+
+vim.opt.shiftwidth = 2       -- Set the number of spaces to use for each step of (auto)indent
+vim.opt.expandtab = true     -- Use spaces instead of tabs
+
 vim.opt.relativenumber = true
 vim.opt.number         = true
 

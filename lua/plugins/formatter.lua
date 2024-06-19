@@ -1,19 +1,28 @@
 return { -- Autoformat
 	"stevearc/conform.nvim",
-	opts = {
-		notify_on_error = false,
-		formatters_by_ft = {
-			lua = { "stylua" },
-			-- Conform can also run multiple formatters sequentially
-			-- python = { "isort", "black" },
-			--
-			-- You can use a sub-list to tell conform to run *until* a formatter
-			-- is found.
-			javascript = { { "prettierd", "prettier" } },
-			typescript = { { "prettierd", "prettier" } },
-		},
-	},
+	event = { "BufReadPre", "BufNewFile" },
+
 	config = function()
+		local conform = require("conform")
+		conform.setup({
+			formatters_by_ft = {
+				javascript = { "prettier" },
+				typescript = { "prettier" },
+				javascriptreact = { "prettier" },
+				typescriptreact = { "prettier" },
+				svelte = { "prettier" },
+				css = { "prettier" },
+				html = { "prettier" },
+				json = { "prettier" },
+				yaml = { "prettier" },
+				markdown = { "prettier" },
+				graphql = { "prettier" },
+				liquid = { "prettier" },
+				lua = { "stylua" },
+				python = { "black" },
+			},
+		})
+
 		vim.api.nvim_create_user_command("Format", function(args)
 			local range = nil
 			if args.count ~= -1 then

@@ -53,7 +53,8 @@ return { -- Fuzzy Finder (files, lsp, etc)
 			defaults = {
 				file_ignore_patterns = {
 					"node_modules",
-					".git"
+					".git",
+					"dist"
 				},
 				vimgrep_arguments = {
 					"rg",
@@ -80,7 +81,7 @@ return { -- Fuzzy Finder (files, lsp, etc)
 				},
 				live_grep = {
 					disable_devicons = true,
-					file_ignore_patterns = { 'node_modules', '.git' },
+					file_ignore_patterns = { 'node_modules', '.git', 'dist' },
 					additional_args = function()
 						return { "--hidden" }
 					end
